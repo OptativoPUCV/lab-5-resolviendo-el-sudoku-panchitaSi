@@ -57,13 +57,21 @@ List* get_adj_nodes(Node* n){
   List* list=createList();
   size_t fila = 0;
   size_t col = 0;
+  unsigned short si = 1;
   for (fila; fila < 9; fila++){
     for(col; col < 9; col++){
-      if (n->sudo[fila][col] == 0) break;
+      if (n->sudo[fila][col] == 0){
+        si = 0;
+        break;
+      } 
     }
-    if (n->sudo[fila][col] == 0) break;
+    if (n->sudo[fila][col] == 0){
+      si = 0;
+      break;
+    } 
   }
 
+  if (si) return list;
   
   for (unsigned short num = 1; num < 10 ; num++){
     Node* adj = copy(n);
