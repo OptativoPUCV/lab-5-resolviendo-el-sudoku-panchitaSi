@@ -48,10 +48,28 @@ int is_valid(Node* n){
     return 1;
 }
 
-
+//1.Cree una función que a partir de un nodo genere una **lista con los nodos adyacentes**:
+/*Para el caso del ejemplo, la función debería retornar una lista con 9 nodos. 
+Cada uno de ellos idéntico al nodo original pero cambiando el valor de la primera casilla vacía, 
+es decir: sudo[0][2], por 1, 2, ..., 9.
+Utilice la función Node* copy(Node* n) para copiar nodos.*/
 List* get_adj_nodes(Node* n){
-    List* list=createList();
-    return list;
+  List* list=createList();
+  size_t fila = 0;
+  size_t col = 0;
+  for (fila; fila < 9; fila++){
+    for(col; col < 9; col++){
+      if (n->sudo[fila][col] == 0) break;
+    }
+    if (n->sudo[fila][col] == 0) break;
+  }
+
+  Node* adj = copy(n);
+  for (unsigned short num = 1; num < 10 ; num++){
+    adj->sudo[fila][col] = num;
+    pushBack(list,adj);
+  }
+  return list;
 }
 
 
