@@ -44,7 +44,36 @@ void print_node(Node* n){
 }
 
 int is_valid(Node* n){
-
+  for (size_t k = 0; k < 9 ; k++){
+    unsigned short listaF[10] = {0};
+    unsigned short listaC[10] = {0};
+    for (size_t i = 0; i < 9 ; i++){
+      if (n->sudo[k][i] != 0){
+        if (listaF[i] == 1) return 0;
+        else{
+          listaF[i] = 1;
+        }
+      }
+      if (n->sudo[i][k] != 0){
+        if (listaC[k] == 1) return 0;
+        else{
+          listaC[k] = 1;
+        }
+      }
+    }
+  }
+  int p;
+  for(int k = 0; k < 9 ; k++){
+    unsigned short listaSm[10] = {0};
+    for(p=0;p<9;p++){
+      int i=3*(k/3) + (p/3) ;
+      int j=3*(k%3) + (p%3) ;
+      if (listaSm[i] == 1) return 0;
+      else{
+        listaSm[i] = 1;
+      }
+  }
+  }
     return 1;
 }
 
