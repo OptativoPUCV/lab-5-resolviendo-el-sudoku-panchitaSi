@@ -64,8 +64,9 @@ List* get_adj_nodes(Node* n){
     if (n->sudo[fila][col] == 0) break;
   }
 
-  Node* adj = copy(n);
+  
   for (unsigned short num = 1; num < 10 ; num++){
+    Node* adj = copy(n);
     adj->sudo[fila][col] = num;
     pushBack(list,adj);
   }
