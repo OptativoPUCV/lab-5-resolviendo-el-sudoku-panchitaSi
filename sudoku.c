@@ -68,13 +68,13 @@ int is_valid(Node* n){
     for(p=0;p<9;p++){
       int i=3*(k/3) + (p/3) ;
       int j=3*(k%3) + (p%3) ;
-      if (n->sudo[i][j] != 0){
-        if (listaSm[j] == 1) return 0;
-        else listaSm[j] = 1;
+      if (n->sudo[j][i] != 0){
+        if (listaSm[i] == 1) return 0;
+        else listaSm[i] = 1;
       }
     }
   }
-    return 1;
+  return 1;
 }
 
 //1.Cree una función que a partir de un nodo genere una **lista con los nodos adyacentes**:
