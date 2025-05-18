@@ -124,15 +124,19 @@ Node* DFS(Node* initial, int* cont){
   Stack* pila = createStack();
   push(pila,initial);
   while(top(pila) != NULL){
+    Node* actual = top(pila);
     pop(pila);
-    if (is_final(top(pila))) return top(pila);
-    List* lista = get_adj_nodes(top(pila));
+
+    if (is_final(actual)) return actual;
+
+    List* lista = get_adj_nodes(actual);
     Node* nodito = first(lista);
     while (nodito != NULL){
       push(pila,nodito);
       nodito = next(lista);
     }
-    cont++;
+    
+    (*cont)++;
   }
   return NULL;
 }
