@@ -112,7 +112,12 @@ List* get_adj_nodes(Node* n){
 
 
 int is_final(Node* n){
-    return 0;
+  for (size_t k = 0; k < 9; k++){
+    for (size_t i = 0; i < 9; i++){
+      if (n->sudo[k][i] == 0) return 0;
+    }
+  }
+  return 1;
 }
 
 Node* DFS(Node* initial, int* cont){
