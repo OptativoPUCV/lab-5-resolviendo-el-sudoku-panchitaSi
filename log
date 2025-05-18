@@ -109,3 +109,9 @@ sudoku.c:139:5: note: previous definition of 'main' was here
  int main( int argc, char *argv[] ){
      ^~~~
 05cd2b7
+Sat, May 17, 2025 11:40:40 PM: 
+ sudoku.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+ tests:  10|0
+total_score: 70/70
+95799c5
