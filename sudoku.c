@@ -136,7 +136,6 @@ Node* DFS(Node* initial, int* cont){
       nodito = next(lista);
     }
 
-    free(actual);
     (*cont)++;
   }
   return NULL;
