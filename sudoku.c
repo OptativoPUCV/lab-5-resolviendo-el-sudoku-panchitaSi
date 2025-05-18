@@ -84,23 +84,17 @@ es decir: sudo[0][2], por 1, 2, ..., 9.
 Utilice la función Node* copy(Node* n) para copiar nodos.*/
 List* get_adj_nodes(Node* n){
   List* list=createList();
-  size_t fila = 0;
-  size_t col = 0;
-  unsigned short si = 1;
-  for (fila; fila < 9; fila++){
-    for(col; col < 9; col++){
-      if (n->sudo[fila][col] == 0){
-        si = 0;
+  int fila = -1, col = -1;
+  for (int i = 0; i < 9; i++) {
+    for (int j = 0; j < 9; j++) {
+      if (n->sudo[i][j] == 0) {
+        fila = i;
+        col = j;
         break;
-      } 
+      }
     }
-    if (n->sudo[fila][col] == 0){
-      si = 0;
-      break;
-    } 
+    if (fila != -1) break;
   }
-
-  if (si) return list;
   
   for (unsigned short num = 1; num < 10 ; num++){
     Node* adj = copy(n);
